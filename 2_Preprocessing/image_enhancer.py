@@ -28,12 +28,15 @@ def augment_image(img):
 
     return augmented_images
 
-
 input_folder = "../dataset"
 output_folder = "../processed_dataset"
 
 for person in os.listdir(input_folder):
     person_path = os.path.join(input_folder, person)
+
+    if not os.path.isdir(person_path):
+        continue
+
     save_path = os.path.join(output_folder, person)
     os.makedirs(save_path, exist_ok=True)
 
@@ -49,8 +52,8 @@ for person in os.listdir(input_folder):
         augmented_list = augment_image(img)
         name = os.path.splitext(filename)[0]
 
-        # 3. save
+        # save images
         for i, aug_img in enumerate(augmented_list):
-            cv2.imwrite(f"{save_path}/{name}_aug_{i}.jpg", aug_img)
+            cv2.imwrite(os.path.join(save_path, f"{name}_aug_{i}.jpg"), aug_img)
 
 print("Preprocessing and Augmentation complete!")

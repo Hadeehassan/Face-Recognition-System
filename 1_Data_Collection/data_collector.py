@@ -3,8 +3,8 @@ import os
 import time
 
 # 1. SETUP
-name = "Hadi"
-dataset_path = f"../dataset/{name}"
+name = "Hady"
+dataset_path = os.path.join(os.getcwd(), "dataset", name)
 
 if not os.path.exists(dataset_path):
     os.makedirs(dataset_path)
@@ -20,7 +20,7 @@ count = 0
 
 # Delay settings (time between each capture)
 last_capture_time = 0
-delay = 0.5  # seconds
+delay = 0.2  # seconds
 
 print(f"Capturing images for {name}. Press 'q' to stop.")
 
@@ -28,7 +28,7 @@ while True:
     ret, frame = cap.read()
     if not ret:
         break
-
+    frame = cv2.flip(frame,1)
     # Convert to grayscale (for detection + saving)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
