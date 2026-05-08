@@ -1,16 +1,13 @@
 import cv2
 
-# Load Haar Cascade
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'
 )
 
-# Load Recognizer
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 recognizer.read(r"F:\Github\Face-Recognition-System\model\trainer.yml")
 
-# Names
 names = ["Abdallah", "Hady", "Nour"]
 
 # Camera
