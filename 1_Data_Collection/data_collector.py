@@ -4,7 +4,7 @@ import time
 
 # 1. SETUP
 name = "Hady"
-dataset_path = os.path.join(os.getcwd(), "dataset", name)
+dataset_path = os.path.join(os.getcwd(), r"D:\hady\3nd year\Second_term\Supervised_Learning\project\Face-Recognition-System\datasets", name)
 
 if not os.path.exists(dataset_path):
     os.makedirs(dataset_path)
@@ -64,7 +64,7 @@ while True:
     cv2.imshow("Data Collection", frame)
 
     # Exit conditions
-    if cv2.waitKey(1) & 0xFF == ord('q') or count >= 80:
+    if cv2.waitKey(1) & 0xFF == ord('q') or count >= 150:
         break
 
 # Cleanup
